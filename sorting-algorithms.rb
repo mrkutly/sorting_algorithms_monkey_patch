@@ -35,23 +35,24 @@ class Array
 
 
   def merge(left, right)
-    if left.empty?
-      right
-    elsif right.empty?
-      left
-    elsif left[0] < right[0]
-      [left[0]] + merge(left[1..left.length], right)
-    else
-      [right[0]] + merge(left, right[1..right.length])
+    merged = []
+
+    while !left.empty? and !right.empty?
+      if left.first < right.first
+        merged << left.shift
+      else
+        merged << right.shift
+      end
     end
+
+    merged + left + right
   end
 
 
-  def merge_sort
+  def mergesort
     if self.length <= 1
       self
     else
-      binding.pry
       mid = (self.length / 2).floor
       left = self[0..mid - 1].merge_sort
       right = self[mid..self.length].merge_sort
