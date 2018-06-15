@@ -1,5 +1,3 @@
-require 'pry'
-
 class Array
 
   # Test them out with some random numbers #
