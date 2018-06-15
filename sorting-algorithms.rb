@@ -1,3 +1,4 @@
+require 'pry'
 class Array
   # Test them out with some random numbers #
   def self.big
@@ -104,8 +105,8 @@ class Array
       self
     else
       mid = (self.length / 2).floor
-      left = self[0..mid - 1].merge_sort
-      right = self[mid..self.length].merge_sort
+      left = self[0..mid - 1].mergesort
+      right = self[mid..self.length].mergesort
       self.merge(left, right)
     end
   end
@@ -119,3 +120,5 @@ class Array
     return *left.quicksort, pivot, *right.quicksort
   end
 end
+
+Pry.start
