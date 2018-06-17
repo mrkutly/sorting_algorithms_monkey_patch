@@ -22,7 +22,6 @@ class Array
         k = i + 1
         if self[i] > self[k]
           self[i], self[k] = self[k], self[i]
-          i += 1
           swapped = true
         end
       end
